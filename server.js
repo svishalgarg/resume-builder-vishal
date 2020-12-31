@@ -46,21 +46,21 @@ app.get('/generate_resume',function(request,response){
     pdf.create(html,options).toFile(__dirname+'/public/resumes/resume.pdf',(err,res) => {
         let responseData = {};
         if(err) responseData = {error:"pdf error"};
-        else responseData["pdf_file"] = "http://127.0.0.1:8081/resumes/resume.pdf";
+        else responseData["pdf_file"] = "https://resume-builder-node.herokuapp.com/resumes/resume.pdf";
 
 
         const blob = htmlDocx.asBlob(html,{orientation:'landscape',margins:{top:720}});
         fs.createWriteStream(__dirname+'/public/resumes/resume.docx').write(blob);
-        responseData["docx_file"] = "http://127.0.0.1:8081/resumes/resume.docx";
+        responseData["docx_file"] = "https://resume-builder-node.herokuapp.com/resumes/resume.docx";
 
         response.end(JSON.stringify(responseData));
     });    
 })
 
-const port = process.env.PORT || 8080;
+let port = process.env.PORT || 8080;
 
 let server = app.listen(port,function(){
     let host = server.address().address
     let port = server.address().port
-    console.log("App listening at http://127.0.0.1:8081");
+    console.log("App listening at http://127.0.0.1:"+port);
 })
