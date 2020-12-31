@@ -57,9 +57,10 @@ app.get('/generate_resume',function(request,response){
     });    
 })
 
-let server = app.listen(8081, function () {
+const port = process.env.PORT || 8080;
+
+let server = app.listen(port,function(){
     let host = server.address().address
     let port = server.address().port
-   
-   console.log("App listening at http://127.0.0.1:8081");
+    console.log("App listening at http://127.0.0.1:8081");
 })
