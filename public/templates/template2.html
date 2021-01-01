@@ -1,26 +1,56 @@
 <html style="font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
 <head>
-	
+	<style>
+		p,td,span{
+			font-size:{{font_size}}px;
+		}
+		h1,h2,h3{
+			font-size:{{heading_size}}px;
+		}
+		body{
+			font-family: {{font_style}};
+			color:{{text_color}};
+			line-height:{{line_spacing}}px;
+		}
+		p{
+			line-height:{{paragraph_spacing}}px;
+		}
+		.section_space{
+			margin-bottom:{{section_spacing}}px;
+		}
+		.header_left{
+			float:left;
+		}
+		.header_right{
+			float:right;
+			margin-top:30px;
+		}
+		.clearfix{
+			clear:both;
+		}
+	</style>
 </head>
-<body style="font-family: sans-serif; color: #222;margin: 0; font-size: 0.8em; line-height: 1.4;">
+<body style="margin: 0; font-size: 0.8em; line-height: 1.4;">
 	<div class="container" style="width: 80%;max-width: 600px;margin: 0 auto;">
-		<header>
-			<h1 id="name">{{user_name}}</h1>
-
-			<div class="contact">
-				<div class="email">{{user_email}}</div>
+		<header class="section_space">
+			<div class="header_left">
+				<h1 id="name">{{user_name}}</h1>
 			</div>
 			
-			<div id="designation">
-				<span class="title">{{user_designation}}</span>
-				<!--<span class="organization">Organization Name</span>-->
-			</div>			
-			
+			<div class="header_right">
+				<div id="designation">
+					<div class="title">{{user_designation}}</div>
+				</div>
+				<div class="contact">
+					<p class="email">{{user_email}}</p>
+				</div>
+			</div>
+			<div class="clearfix"></div>
 		</header>
 		
 		<div class="content">			
 			
-			<section id="Education">
+			<section id="Education" class="section_space">
 				<h2 class="title" style="text-align:left;font-weight:bold;">Education</h2>
 				<div class="description">
 					<table style="width: 100%;border-collapse: collapse; border-spacing: 0;">
@@ -50,7 +80,7 @@
 				</div>
 			</section>
 
-			<section id="objective">
+			<section id="objective" class="section_space">
 				<h2 class="title" style="text-align:left;font-weight:bold;">Objective</h2>
 				<div class="description">
 					<p>
@@ -59,7 +89,7 @@
 				</div> <!-- end description -->
 			</section>
 				
-			<section id="projects">
+			<section id="projects" class="section_space">
 				<h2 class="title" style="text-align:left;font-weight:bold;">Projects Undertaken</h2>
 				<div class="description">
 					
